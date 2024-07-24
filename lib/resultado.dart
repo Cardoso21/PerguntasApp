@@ -37,14 +37,16 @@ class Resultado extends StatelessWidget {
             'Sua nota é $nota.',
             style: TextStyle(
               fontSize: 20,
-              color: Colors.grey,
+              color: Colors.white60,
             ),
             textAlign: TextAlign.center,
           ),
         ),
         TextButton(
           onPressed: reiniciarQuest,
-          child: Text('reiniciar'),
+          child: Text('reiniciar',style: TextStyle(
+            color: Colors.white30
+          ),),
         )
       ],
     );

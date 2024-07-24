@@ -9,30 +9,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
   var _pontuacaoTotal = 0;
   final _perguntas = const [
     {
-      'texto': 'Qual seu Orixar favorito ?',
+      'texto': 'Qual seu desenho favorito ?',
       'respostas': [
-        {'texto': 'Oxossi', 'nota': 10},
-        {'texto': 'Ogun', 'nota': 5},
-        {'texto': 'Xangô', 'nota': 3},
-        {'texto': 'Iansã', 'nota': 1},
+        {'texto': 'Dragon ball', 'nota': 10},
+        {'texto': 'Naruto', 'nota': 5},
+        {'texto': 'X-Man', 'nota': 3},
+        {'texto': 'Pokemon', 'nota': 1},
       ]
     },
     {
-      'texto': 'Qual seu catiço favorito ?',
+      'texto': 'Qual seu esporte favorito ?',
       'respostas': [
-        {'texto': 'Boiadeiro', 'nota': 10},
-        {'texto': 'Bahiano', 'nota': 5},
-        {'texto': 'Marinheiro', 'nota': 3},
-        {'texto': 'Ere', 'nota': 1},
+        {'texto': 'Futebol', 'nota': 10},
+        {'texto': 'Basquete', 'nota': 5},
+        {'texto': 'Volei', 'nota': 3},
+        {'texto': 'Handebol', 'nota': 1},
       ]
     },
     {
-      'texto': 'Qual seu exu faorito ?',
+      'texto': 'Qual sua brincadeira favorita ?',
       'respostas': [
-        {'texto': 'Quebra Galho', 'nota': 10},
-        {'texto': 'Pinga Fogo', 'nota': 5},
-        {'texto': 'Exu Omulo', 'nota': 3},
-        {'texto': 'Sete Montanhas', 'nota': 1},
+        {'texto': 'Pique-esconde', 'nota': 10},
+        {'texto': 'policia e ladrão', 'nota': 5},
+        {'texto': 'Bete', 'nota': 3},
+        {'texto': 'garrafão', 'nota': 1},
       ]
     },
   ];
@@ -76,12 +76,21 @@ class _PerguntaAppState extends State<PerguntaApp> {
         appBar: AppBar(
           title: Center(child: Text('Perguntas')),
         ),
-        body: temPerguntaSelecionada
-            ? Questionario(
-                perguntas: _perguntas,
-                perguntaSelecionada: _perguntaSelecionada,
-                quandoResponder: _responder)
-            : Resultado(_pontuacaoTotal, _reiniciarQuest),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.purple],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: temPerguntaSelecionada
+              ? Questionario(
+              perguntas: _perguntas,
+              perguntaSelecionada: _perguntaSelecionada,
+              quandoResponder: _responder)
+              : Resultado(_pontuacaoTotal, _reiniciarQuest),
+        ),
       ),
     );
   }
